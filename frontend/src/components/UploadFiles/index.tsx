@@ -23,7 +23,7 @@ const UploadFiles = ({ files, setFiles }: UploadFilesProps) => {
         const validFiles = fileArray.filter((file) => allowedTypes.includes(file.type));
 
         if (validFiles.length + files.length > 2) {
-            alert("Solo se pueden subir hasta 2 archivos.");
+            alert("Solo se pueden subir hasta max. 2 archivos.");
             return;
         }
 
