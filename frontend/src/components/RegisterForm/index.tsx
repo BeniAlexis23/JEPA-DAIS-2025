@@ -1,6 +1,7 @@
 "use client";
 
 import axios from "axios";
+import Swal from "sweetalert2";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Link from "next/link";
 import UploadFiles from "../UploadFiles";
@@ -97,11 +98,14 @@ const RegisterForm = () => {
     const [formData, setFormData] = useState(initialFormData);
     const [files, setFiles] = useState<File[]>([]);
 
+    const [nombresIntegrantes, setNombresIntegrantes] = useState<string[]>([]);
+    const [inputIntegrante, setInputIntegrante] = useState("");
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         const data = new FormData();
-        Object.entries(formData).forEach(([key, value]) => {
+        Object.entries({ ...formData, nombres_integrantes: nombresIntegrantes.join(", ") }).forEach(([key, value]) => {
             data.append(key, value);
         });
         files.forEach((file) => data.append("files", file));
@@ -113,14 +117,24 @@ const RegisterForm = () => {
                 },
             });
 
-            alert("Proyecto registrado con éxito");
+            Swal.fire({
+                icon: "success",
+                title: "Proyecto registrado con éxito",
+                confirmButtonColor: "#2563eb", // azul
+            });
             setFormData(initialFormData);
             setFiles([]);
             setSelectedDisciplina("");
-
+            setNombresIntegrantes([]);
+            setInputIntegrante("");
         } catch (err) {
             console.error(err);
-            alert("Error al registrar el proyecto");
+            Swal.fire({
+                icon: "error",
+                title: "Error al registrar el proyecto",
+                text: "Ocurrió un problema al enviar los datos.",
+                confirmButtonColor: "#ef4444", // rojo
+            });
         }
     };
 
@@ -168,13 +182,41 @@ const RegisterForm = () => {
                     </select>
                 </div>
                 <div className="flex flex-col md:col-span-2">
-                    <label className="text-sm text-white mb-1">Nombres de los Integrantes</label>
-                    <textarea required placeholder="1. Gianmarcos Arias. 2. Pamela Reyna..."
-                        className="border rounded px-4 py-2 min-h-[100px] resize-y w-full"
-                        value={formData.nombres_integrantes}
-                        onChange={(e) => setFormData({ ...formData, nombres_integrantes: e.target.value })}
-                    />
+                    <label className="text-sm text-white mb-1">Código Universitario de los Integrantes</label>
+                    <div className="border rounded px-4 py-2 w-full min-h-[100px]">
+                        <div className="flex flex-wrap gap-2 mb-2">
+                            {nombresIntegrantes.map((nombre, idx) => (
+                                <span key={idx} className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center gap-2">
+                                    {nombre}
+                                    <button
+                                        type="button"
+                                        onClick={() =>
+                                            setNombresIntegrantes(nombresIntegrantes.filter((_, i) => i !== idx))
+                                        }
+                                        className="ml-1 text-xs"
+                                    >
+                                        ✕
+                                    </button>
+                                </span>
+                            ))}
+                        </div>
+                        <input
+                            type="text"
+                            placeholder=" Ingrese código del estudiante y presione Enter"
+                            className="w-full border rounded outline-none"
+                            value={inputIntegrante}
+                            onChange={(e) => setInputIntegrante(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter" && inputIntegrante.trim()) {
+                                    e.preventDefault();
+                                    setNombresIntegrantes([...nombresIntegrantes, inputIntegrante.trim()]);
+                                    setInputIntegrante("");
+                                }
+                            }}
+                        />
+                    </div>
                 </div>
+
                 <div className="flex flex-col">
                     <label className="text-sm text-white mb-1">Disciplina</label>
                     <select
