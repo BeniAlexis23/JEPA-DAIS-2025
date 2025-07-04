@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import multer from "multer";
 import registerRoutes from "./routes/registerRoutes";
+import juradoRoutes from "./routes/juradoRoutes";
 import initDB from "./utils/initDB";
 import path from "path";
 
@@ -15,6 +16,7 @@ app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
 initDB();
 
 app.use("/api", registerRoutes);
+app.use("/api", juradoRoutes);
 
 app.listen(PORT, () => {
     console.log(`🚀 Servidor escuchando en http://localhost:${PORT}`);

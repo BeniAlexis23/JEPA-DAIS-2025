@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import Swal from "sweetalert2";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import UploadFiles from "../UploadFiles";
 

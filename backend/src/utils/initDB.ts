@@ -48,6 +48,18 @@ const initDB = async () => {
       )
     `);
 
+    await pool.query(`
+      CREATE TABLE IF NOT EXISTS jurados (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        nombres VARCHAR(255),
+        apellidos VARCHAR(255),
+        celular VARCHAR(20),
+        correo VARCHAR(255),
+        horario VARCHAR(100),
+        fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      )
+    `);
+
     console.log("✅ Conexión a MySQL exitosa y tabla lista.");
   } catch (error) {
     console.error("❌ Error al conectar a MySQL:", error);
