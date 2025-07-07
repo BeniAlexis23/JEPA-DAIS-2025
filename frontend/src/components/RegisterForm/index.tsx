@@ -276,12 +276,12 @@ const RegisterForm = () => {
                 </div>
                 <div className="md:col-span-2">
                     <p className="text-center mb-2">Registro habilitado a partir del 14 de Julio del 2025</p>
-                    {/*<div className="w-full text-center bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
+                    <div className="w-full text-center bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
                         Registrar Proyecto
-                    </div>*/}
-                    <button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                    </div>
+                    {/*<button type="submit" className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
                         Registrar Proyecto
-                    </button>
+                    </button>*/}
                 </div>
             </form>
         </div>
