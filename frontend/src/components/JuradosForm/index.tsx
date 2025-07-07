@@ -60,7 +60,7 @@ const JuradosForm = () => {
 
     return (
         <div className="shadow-lg rounded-lg p-8 w-full max-w-4xl">
-            <h1 className="text-4xl font-semibold mb-6 md:pt-20 pt-5 text-center">Registro de Jurados Evaluador de Proyectos</h1>
+            <h1 className="text-4xl font-semibold mb-6 md:pt-20 mt-20 lg:mt-5 text-center">Registro de Jurados Evaluador de Proyectos</h1>
             <div className="flex gap-4 mb-6 justify-start">
                 <Link href="https://drive.google.com/file/d/1QR3EZHhhIVib2lFS0Nhpt8ZsK7upqN6v/view?usp=sharing" target="_blank" className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition">
                     Bases
