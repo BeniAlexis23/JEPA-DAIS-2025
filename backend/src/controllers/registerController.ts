@@ -43,3 +43,14 @@ export const registerProject = async (req: Request, res: Response) => {
         res.status(500).json({ message: "Error al registrar el proyecto." });
     }
 };
+
+//end point to get all registered projects
+export const getRegisteredProjects = async (req: Request, res: Response) => {
+    try {
+        const [rows] = await pool.execute(`SELECT * FROM proyectos`);
+        res.status(200).json(rows);
+    } catch (error) {
+        console.error("❌ Error al obtener proyectos registrados:", error);
+        res.status(500).json({ message: "Error al obtener proyectos registrados." });
+    }
+};

@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 import path from "path";
-import { registerProject } from "../controllers/registerController";
+import { registerProject, getRegisteredProjects } from "../controllers/registerController";
 
 const router = Router();
 
@@ -19,4 +19,6 @@ const upload = multer({ storage });
 
 router.post("/register", upload.array("files", 2), registerProject);
 
+
+router.get("/projects", getRegisteredProjects);
 export default router;
