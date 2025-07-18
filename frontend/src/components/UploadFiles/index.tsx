@@ -16,8 +16,6 @@ const UploadFiles = ({ files, setFiles }: UploadFilesProps) => {
         const fileArray = Array.from(selectedFiles);
         const allowedTypes = [
             "application/pdf",
-            "application/vnd.ms-powerpoint",
-            "application/vnd.openxmlformats-officedocument.presentationml.presentation",
         ];
 
         const validFiles = fileArray.filter((file) => allowedTypes.includes(file.type));
@@ -44,13 +42,13 @@ const UploadFiles = ({ files, setFiles }: UploadFilesProps) => {
     return (
         <div className="mb-6">
             <label className="block mb-2 text-sm font-medium text-white">
-                Selecciona los archivos para cargar (PDF o PPT - máx. 2)
+                Selecciona los archivos para cargar (Solo PDF - máx. 2)
             </label>
             <input
                 type="file"
                 ref={inputRef}
                 required
-                accept=".pdf,.ppt,.pptx"
+                accept=".pdf"
                 multiple
                 onChange={handleFileChange}
                 disabled={files.length >= 2}
