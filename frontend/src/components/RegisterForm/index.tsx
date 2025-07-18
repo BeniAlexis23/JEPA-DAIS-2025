@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useState } from "react";
 import Link from "next/link";
 import UploadFiles from "../UploadFiles";
+import { API_ENDPOINTS } from "@/config/api";
 
 const docentes: string[] = [
     "Seleccione Docente",
@@ -111,7 +112,7 @@ const RegisterForm = () => {
         files.forEach((file) => data.append("files", file));
 
         try {
-            const res = await axios.post("https://api-register-bk.episundc.pe/api/register", data, { //dev environment: http://localhost:3001/api/register
+            const res = await axios.post(API_ENDPOINTS.register, data, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
