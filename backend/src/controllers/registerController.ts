@@ -47,10 +47,65 @@ export const registerProject = async (req: Request, res: Response) => {
 //end point to get all registered projects
 export const getRegisteredProjects = async (req: Request, res: Response) => {
     try {
-        const [rows] = await pool.execute(`SELECT * FROM proyectos`);
-        res.status(200).json(rows);
+        const [rows] = await pool.execute(`SELECT * FROM proyectos`) as any[];
+
+        // Transformar los datos
+        const transformedProjects = rows.map((project: projectApiExternal) => {
+            // Convertir nombres_integrantes a array de strings sin espacios
+            const nombresIntegrantes = project.nombres_integrantes
+                ? project.nombres_integrantes.split(',').map((nombre: string) => nombre.trim())
+                : [];
+
+            // Procesar turno: dividir por guion y normalizar
+            let turnoData = { turno: '', seccion: '' };
+            if (project.turno) {
+                const turnoSplit = project.turno.split('-').map((part: string) => part.trim());
+                const turno = turnoSplit[0];
+                const seccion = turnoSplit[1] || '';
+
+                // Normalizar turno
+                let turnoNormalizado = turno;
+                if (turno.toLowerCase() === 'mañana') turnoNormalizado = 'MANANA';
+                else if (turno.toLowerCase() === 'tarde') turnoNormalizado = 'TARDE';
+                else if (turno.toLowerCase() === 'noche') turnoNormalizado = 'NOCHE';
+
+                turnoData = { turno: turnoNormalizado, seccion };
+            }
+
+            // Combinar archivo1 y archivo2 en array archivos
+            const archivos = [];
+            if (project.archivo1) archivos.push(project.archivo1);
+            if (project.archivo2) archivos.push(project.archivo2);
+
+            return {
+                ...project,
+                nombres_integrantes: nombresIntegrantes,
+                ...turnoData,
+                archivos: archivos,
+                // Remover archivo1 y archivo2 individuales
+                archivo1: undefined,
+                archivo2: undefined
+            };
+        });
+
+        res.status(200).json(transformedProjects);
     } catch (error) {
         console.error("❌ Error al obtener proyectos registrados:", error);
         res.status(500).json({ message: "Error al obtener proyectos registrados." });
     }
 };
+
+export interface projectApiExternal {
+    id: number;
+    docente: string;
+    nombre_proyecto: string;
+    num_integrantes: string;
+    nombres_integrantes: string;
+    disciplina: string;
+    curso: string;
+    ciclo: string;
+    turno: string;
+    archivo1: string;
+    archivo2: null | string;
+    fecha: Date;
+}
