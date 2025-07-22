@@ -276,7 +276,7 @@ const RegisterForm = () => {
                     <UploadFiles files={files} setFiles={setFiles} />
                 </div>
                 <div className="md:col-span-2">
-                    <p className="text-center mb-2">Ya no se aceptan mas resgistros de proyectos</p>
+                    <p className="text-center mb-2">Ultima Oportunidad</p>
                     {/*<div className="w-full text-center bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
                         Registro Cerrado
                     </div>*/}
