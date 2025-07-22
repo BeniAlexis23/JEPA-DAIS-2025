@@ -3,6 +3,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useState } from "react";
 import Link from "next/link";
+import { API_ENDPOINTS } from "@/config/api";
 
 const initialFormData = {
     nombres: "",
@@ -34,7 +35,7 @@ const JuradosForm = () => {
         data.append("horario", formData.horario);
 
         try {
-            const res = await axios.post("https://api-register-bk.episundc.pe/api/jurados", data, { //dev environment: http://localhost:3001/api/jurados
+            const res = await axios.post(API_ENDPOINTS.jurados, data, {
                 headers: {
                     "Content-Type": "application/json",
                 },
