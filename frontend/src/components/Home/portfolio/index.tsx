@@ -24,14 +24,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3159.webp"
+                src="images/portfolio/IMG_6067.jpg"
                 alt="Concert crowd"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>
@@ -39,14 +39,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3177.webp"
+                src="images/portfolio/IMG_6223.jpg"
                 alt="Team building"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>
@@ -54,14 +54,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3190.webp"
+                src="images/portfolio/IMG_6278.jpg"
                 alt="Office meeting"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>
@@ -69,14 +69,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3235.webp"
+                src="images/portfolio/IMG_6139.jpg"
                 alt="Team celebration"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>
@@ -84,14 +84,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3346.webp"
+                src="images/portfolio/IMG_6247.jpg"
                 alt="Conference"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>
@@ -99,14 +99,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3452.webp"
+                src="images/portfolio/IMG_6307.jpg"
                 alt="Volunteering"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>
@@ -114,14 +114,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3481.webp"
+                src="images/portfolio/IMG_6369.jpg"
                 alt="Award ceremony"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>
@@ -129,14 +129,14 @@ const Portfolio = () => {
 
             <div className="group relative overflow-hidden rounded-lg aspect-square">
               <img
-                src="images/portfolio/IMG_3491.webp"
+                src="images/portfolio/IMG_6285.jpg"
                 alt="Office party"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-white text-xl font-bold">IV JEPA</h3>
-                  <p className="text-white/80 mt-1">Diciembre 2024</p>
+                  <h3 className="text-white text-xl font-bold">V JEPA</h3>
+                  <p className="text-white/80 mt-1">Julio 2025</p>
                 </div>
               </div>
             </div>

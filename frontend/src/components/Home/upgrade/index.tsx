@@ -19,7 +19,7 @@ const Upgrade = () => {
               Revisa bien las bases y completa tu registro
             </h2>
             <p className="text-muted text-opacity-60 text-18 mb-7 text-justify lg:mr-12">
-              Las fechas de inscripción son desde el 14 de julio al 20 de julio del 2025 hasta las 23:59 horas.
+              Las fechas de inscripción son desde el 10 al 16 de diciembre del 2025 hasta las 23:59 horas.
               (Tener cuenta que después de la fecha y hora establecida, no se aceptará más inscripciones.)
             </p>
             <div className="flex items-center md:justify-start justify-center gap-8">
@@ -35,7 +35,7 @@ const Upgrade = () => {
           >
             <div className="">
               <Image
-                src={`${getImagePrefix()}images/upgrade/register_2.svg`}
+                src={`${getImagePrefix()}images/upgrade/form.jpg`}
                 alt="image"
                 width={625}
                 height={580}

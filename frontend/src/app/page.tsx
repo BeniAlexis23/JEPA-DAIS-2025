@@ -7,7 +7,7 @@ import Upgrade from "@/components/Home/upgrade";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DAIS - FI",
+  title: "FI - EPIS",
   icons: {
     icon: "/images/logo/es-undc.png",
   },

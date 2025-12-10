@@ -30,8 +30,8 @@ const Hero = () => {
         <div className="grid grid-cols-12 lg:pb-40 lg:pt-0 pt-20 pb-20">
           <motion.div {...leftAnimation} className="lg:col-span-5 col-span-12">
 
-            <h1 className="font-medium lg:text-76 md:text-70 text-54 lg:text-start text-center text-white mb-10">
-              V Jornada de <span className="text-primary">Exposición</span> de Productos{" "}
+            <h1 className="font-medium lg:text-70 md:text-70 text-54 lg:text-start text-center text-white mb-10">
+              VI Jornada de <span className="text-primary">Exposición</span> de Productos{" "}
               <span className="text-primary">Académicos</span>
             </h1>
             <div className="flex items-center md:justify-start justify-center gap-8">
@@ -50,7 +50,7 @@ const Hero = () => {
           >
             <div className="w-full max-w-[800px] aspect-[4/3]">
               <Image
-                src={`${getImagePrefix()}images/hero/programacion.jpg`}
+                src={`${getImagePrefix()}images/hero/chi_peru.jpg`}
                 alt="Banner"
                 fill
                 className="object-contain"

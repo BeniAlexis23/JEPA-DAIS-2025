@@ -6,7 +6,7 @@ const Logo: React.FC = () => {
   return (
     <Link href="/" className="flex items-center h-full">
       <Image
-        src={`${getImagePrefix()}images/logo/logo-dais.png`}
+        src={`${getImagePrefix()}images/logo/epis-logo.png`}
         alt="logo"
         width={120}
         height={40}

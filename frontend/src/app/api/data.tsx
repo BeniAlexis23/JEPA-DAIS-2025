@@ -38,7 +38,15 @@ export const pricedeta: {
       padding: "px-4 py-2",
     },
     {
-      title: "Telecomunicaciones",
+      title: "Automatización y sistemas de control",
+      icon: "images/icons/robot.png",
+      background: "bg-light_grey",
+      width: 42,
+      height: 42,
+      padding: "px-4 py-2",
+    },
+    {
+      title: "Tele-comunicaciones",
       icon: "images/icons/communication.png",
       background: "bg-light_grey",
       width: 42,
