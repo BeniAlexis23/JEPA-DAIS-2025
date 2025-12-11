@@ -40,7 +40,7 @@ const docentes: string[] = [
   "DOCENTE EG",
 ];
 
-const integrantes = ["Seleccione Número Integrantes", "1", "2", "3", "4"];
+const integrantes = ["Seleccione Número Integrantes", "1", "2", "3", "4", "5"];
 
 const disciplinas: { [key: string]: string[] } = {
   "Matemáticas Aplicadas": ["Matemática Básica I", "Matemática Básica II"],
@@ -56,6 +56,7 @@ const disciplinas: { [key: string]: string[] } = {
     "Desarrollo Web Full Stack",
     "Data Warehouse",
     "Arquitectura de Software",
+    "Testing y Aseguramiento de la Calidad del Software",
   ],
   "Automatización y Sistemas de Control": [
     "Inteligencia Artificial y Sistemas Expertos",
@@ -69,6 +70,8 @@ const disciplinas: { [key: string]: string[] } = {
   "Ingeniería de Sistemas y Comunicaciones": [
     "Diseño de Procesos de Negocio",
     "Seguridad y Criptografía",
+    "Gestion de Proyectos",
+    "Auditoría de Sistemas",
     "Business Intelligence",
   ],
   "Hardware y Arquitectura de Computadoras": [
@@ -84,6 +87,7 @@ const disciplinas: { [key: string]: string[] } = {
     "Cultura Ambiental y Resposabilidad Social",
     "Derecho Empresarial",
     "Ética Deontológica",
+    "Practicas Pre Profesionales II",
     "Teoría General de Sistemas",
   ],
 };
@@ -261,7 +265,7 @@ const RegisterForm = () => {
       </h1>
       <div className="flex gap-4 mb-6 justify-center">
         <Link
-          href="https://drive.google.com/file/d/1E3PfKgwMnNZ8xbn3usjCzQHYC_lEKEME/view?usp=sharing"
+          href="https://drive.google.com/file/d/1URAETBXrFJc9DHoEuMCJVeaLHgCX_H03/view?usp=sharing"
           target="_blank"
           className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
         >

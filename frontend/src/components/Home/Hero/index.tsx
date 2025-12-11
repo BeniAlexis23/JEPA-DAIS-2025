@@ -35,7 +35,7 @@ const Hero = () => {
               <span className="text-primary">Académicos</span>
             </h1>
             <div className="flex items-center md:justify-start justify-center gap-8">
-              <Link href={"https://drive.google.com/file/d/1E3PfKgwMnNZ8xbn3usjCzQHYC_lEKEME/view?usp=sharing"} target="_blank" className="bg-transparent border border-primary rounded-lg text-21 font-medium hover:bg-primary hover:text-darkmode text-primary py-2 px-7">
+              <Link href={"https://drive.google.com/file/d/1URAETBXrFJc9DHoEuMCJVeaLHgCX_H03/view?usp=sharing"} target="_blank" className="bg-transparent border border-primary rounded-lg text-21 font-medium hover:bg-primary hover:text-darkmode text-primary py-2 px-7">
                 Bases
               </Link>
               <Link href={"/#upgrade"} className="bg-primary border border-primary rounded-lg text-21 font-medium hover:bg-transparent hover:text-primary text-darkmode py-2 px-7 z-50">
