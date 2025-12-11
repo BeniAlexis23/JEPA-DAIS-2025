@@ -261,7 +261,7 @@ const RegisterForm = () => {
       </h1>
       <div className="flex gap-4 mb-6 justify-center">
         <Link
-          href="https://drive.google.com/file/d/13_2cGG4Y4zwmLST2kqrk6sbJOgBElJh1/view?usp=sharing"
+          href="https://drive.google.com/file/d/1E3PfKgwMnNZ8xbn3usjCzQHYC_lEKEME/view?usp=sharing"
           target="_blank"
           className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
         >

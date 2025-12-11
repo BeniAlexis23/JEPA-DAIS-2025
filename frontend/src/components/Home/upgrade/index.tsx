@@ -35,7 +35,7 @@ const Upgrade = () => {
           >
             <div className="">
               <Image
-                src={`${getImagePrefix()}images/upgrade/form.jpg`}
+                src={`${getImagePrefix()}images/upgrade/form.webp`}
                 alt="image"
                 width={625}
                 height={580}
