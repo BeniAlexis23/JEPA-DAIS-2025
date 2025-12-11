@@ -15,8 +15,8 @@ const initialFormData = {
 
 const horarios = [
     "Seleccione horario",
-    "Mañana - 8:00 - 13:00",
-    "Tarde - 14:00 - 18:00",
+    "Mañana - 10:00 - 13:00",
+    "Tarde - 14:00 - 17:00",
     "Ambos turnos"
 ]
 
