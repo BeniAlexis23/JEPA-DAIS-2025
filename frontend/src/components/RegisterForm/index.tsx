@@ -280,6 +280,10 @@ const RegisterForm = () => {
         </Link>
       </div>
 
+      <div className="md:col-span-2 my-5">
+        <p className="text-center mb-2">Consultas: Ing. Carlos Cayahuallpa - 907625151 | Ing. Beni Luyo - 910922963</p>
+      </div>
+
       <form
         onSubmit={handleSubmit}
         className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4"
