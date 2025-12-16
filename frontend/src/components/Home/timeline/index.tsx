@@ -27,7 +27,7 @@ const TimeLine = () => {
             <div className="flex justify-center">
               <div>
                 <Image
-                  src={`${getImagePrefix()}images/timeline/cronograma.png`}
+                  src={`${getImagePrefix()}images/timeline/cronograma.jpg`}
                   alt="image"
                   width={1220}
                   height={1000}
