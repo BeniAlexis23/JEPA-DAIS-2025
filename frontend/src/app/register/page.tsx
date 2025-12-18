@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const Register = () => {
 
     return (
-        <main className="min-h-screen flex items-center justify-center mt-12">
+        <main className="min-h-screen flex items-center justify-center mt-12 bg-gray-950">
             <RegisterForm />
         </main>
     )

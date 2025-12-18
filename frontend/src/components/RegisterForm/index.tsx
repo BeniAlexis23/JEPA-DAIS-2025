@@ -129,6 +129,9 @@ const initialFormData = {
   turno: "",
 };
 
+// Control de estado del registro desde variables de entorno
+const REGISTRO_ABIERTO = process.env.NEXT_PUBLIC_REGISTRO_ABIERTO === 'true';
+
 const RegisterForm = () => {
   const [selectedDisciplina, setSelectedDisciplina] = useState("");
 
@@ -259,7 +262,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="shadow-lg rounded-lg p-8 w-full max-w-4xl">
+    <div className="shadow-lg rounded-lg p-8 w-full max-w-4xl relative">
       <h1 className="text-4xl font-semibold mb-6 md:pt-20 pt-5 text-center">
         Registro de Proyectos Académicos
       </h1>
@@ -284,9 +287,43 @@ const RegisterForm = () => {
         <p className="text-center mb-2">Consultas: Ing. Carlos Cayahuallpa - 907625151 | Ing. Beni Luyo - 910922963</p>
       </div>
 
+      {/* Overlay cuando el registro está cerrado */}
+      {!REGISTRO_ABIERTO && (
+        <div className="absolute inset-0 bg-black/80 backdrop-blur-md rounded-lg flex items-center justify-center z-10 animate-fadeIn">
+          <div className="bg-slate-800 border-2 border-red-500/50 rounded-2xl shadow-2xl p-10 m-4 max-w-md text-center transform transition-all animate-scaleIn">
+            <div className="mb-6">
+              <svg
+                className="w-24 h-24 mx-auto text-red-500 animate-bounce drop-shadow-lg"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                />
+              </svg>
+            </div>
+            <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-md">
+              Registro Cerrado
+            </h2>
+            <p className="text-gray-200 text-lg mb-6 leading-relaxed">
+              El periodo de registro de proyectos ha finalizado.
+            </p>
+            {/* <div className="bg-blue-600/20 border border-blue-500/40 rounded-lg p-4">
+              <p className="text-sm text-blue-100 font-medium">
+                Para más información, contactar a los coordinadores
+              </p>
+            </div> */}
+          </div>
+        </div>
+      )}
+
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4"
+        className={`grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 ${!REGISTRO_ABIERTO ? 'opacity-50 pointer-events-none' : ''}`}
       >
         <div className="flex flex-col">
           <label className="text-sm text-white mb-1">Docente Asesor</label>
