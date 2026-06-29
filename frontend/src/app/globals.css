@@ -4,14 +4,23 @@
 
 html {
   scroll-behavior: smooth;
+  background: #020817;
 }
 
-section{
+body {
+  background:
+    radial-gradient(circle at 18% 0%, rgba(14, 165, 233, 0.2), transparent 28%),
+    radial-gradient(circle at 88% 8%, rgba(34, 211, 238, 0.12), transparent 24%),
+    #020817;
+  color: #e2e8f0;
+}
+
+section {
   @apply bg-darkmode;
 }
 
 .blog-details p, .blog-details hr {
-  @apply mb-8 ;
+  @apply mb-8;
 }
 
 .blog-details hr {
@@ -42,14 +51,9 @@ section{
   @apply mb-6 text-2xl font-bold text-white sm:text-[28px] sm:leading-[40px];
 }
 
-/* Animaciones para el mensaje de registro cerrado */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes scaleIn {

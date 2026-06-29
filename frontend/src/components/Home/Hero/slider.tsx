@@ -11,56 +11,30 @@ const CardSlider = () => {
     dots: false,
     arrows: false,
     infinite: true,
-    autoplaySpeed: 1500,
-    speed: 300,
+    autoplaySpeed: 1800,
+    speed: 360,
     slidesToShow: 4,
     slidesToScroll: 1,
     cssEase: "ease-in-out",
     responsive: [
-      {
-        breakpoint: 479,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4,
-        },
-      },
+      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      { breakpoint: 992, settings: { slidesToShow: 2 } },
+      { breakpoint: 1200, settings: { slidesToShow: 3 } },
     ],
   };
+
   return (
-    <div className="lg:-mt-36 mt-20">
+    <div className="mt-12 lg:mt-16">
       <Slider {...settings}>
         {pricedeta.map((item, index) => (
-          <div key={index} className="lg:pr-6">
-            <div className=" flex items-center px-5 py-6 bg-dark_grey bg-opacity-80 rounded-xl">
-              <div className="flex items-center gap-5">
-                <div className="bg-light_grey rounded-full flex items-center justify-center w-16 h-16 flex-shrink-0">
-                  <Image
-                    src={`${getImagePrefix()}${item.icon}`}
-                    alt="icon"
-                    width={40}
-                    height={40}
-                    className="w-10 h-10 object-contain"
-                  />
-                </div>
-                <p className="text-16 text-white leading-tight">
-                  <span className="font-semibold">{item.title}</span>
-                </p>
+          <div key={index} className="px-2 py-1">
+            <div className="flex min-h-[108px] items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur transition hover:-translate-y-1 hover:border-secondary/40 hover:bg-white/[0.09]">
+              <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-secondary/15">
+                <Image src={`${getImagePrefix()}${item.icon}`} alt={`${item.title} icon`} width={36} height={36} className="h-9 w-9 object-contain" />
               </div>
-
+              <p className="text-16 font-semibold leading-snug text-white">{item.title}</p>
             </div>
           </div>
-
         ))}
       </Slider>
     </div>

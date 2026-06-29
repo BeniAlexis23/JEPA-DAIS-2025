@@ -6,41 +6,29 @@ import { getImagePrefix } from "@/utils/utils";
 
 const Upgrade = () => {
   return (
-    <section className="md:py-40 py-20" id="upgrade">
-      <div className="container mx-auto lg:max-w-screen-xl px-4">
-        <div className="grid lg:grid-cols-2 sm:gap-0 gap-10 items-center">
-          <motion.div
-            whileInView={{ y: 0, opacity: 1 }}
-            initial={{ y: "-100%", opacity: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-primary sm:text-28 text-18 mb-3">Formulario de Registro</p>
-            <h2 className="text-white sm:text-40 text-30  font-medium mb-5">
-              Revisa bien las bases y completa tu registro
+    <section className="py-20 lg:py-28" id="upgrade">
+      <div className="container mx-auto px-4 lg:max-w-screen-xl">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <motion.div whileInView={{ y: 0, opacity: 1 }} initial={{ y: 24, opacity: 0 }} transition={{ duration: 0.6 }}>
+            <p className="mb-3 text-16 font-semibold uppercase tracking-[0.2em] text-secondary">Formulario de registro</p>
+            <h2 className="mb-5 text-30 font-semibold text-white sm:text-40">
+              Participa en la <span className="text-primary">convocatoria 2026</span>
             </h2>
-            <p className="text-muted text-opacity-60 text-18 mb-7 text-justify lg:mr-12">
-              Las fechas de inscripción son desde el 10 al 17 de diciembre del 2025 hasta las 15:00 horas.
-              (Tener cuenta que después de la fecha y hora establecida, no se aceptará más inscripciones.)
+            <p className="mb-8 text-17 leading-8 text-slate-300 lg:text-18">
+              Revisa las bases oficiales, prepara los archivos solicitados y completa el formulario con los datos del proyecto. El registro está diseñado para que equipos y docentes asesores puedan enviar su información de forma ordenada.
             </p>
-            <div className="flex items-center md:justify-start justify-center gap-8">
-              <Link href={"/register"} className="bg-primary border border-primary rounded-lg text-21 font-medium hover:bg-transparent hover:text-primary text-darkmode py-2 px-7 z-50">
-                Formulario
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Link href="/register" className="rounded-xl border border-primary bg-primary px-7 py-3 text-center text-18 font-semibold text-white shadow-soft-blue transition hover:bg-secondary hover:text-darkmode">
+                Registrar proyecto
+              </Link>
+              <Link href="/jurados" className="rounded-xl border border-white/15 bg-white/5 px-7 py-3 text-center text-18 font-semibold text-slate-100 transition hover:border-secondary hover:text-secondary">
+                Registro de jurados
               </Link>
             </div>
           </motion.div>
-          <motion.div
-            whileInView={{ y: 0, opacity: 1 }}
-            initial={{ y: "100%", opacity: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="">
-              <Image
-                src={`${getImagePrefix()}images/upgrade/form.webp`}
-                alt="image"
-                width={625}
-                height={580}
-                className="-mr-5"
-              />
+          <motion.div whileInView={{ y: 0, opacity: 1 }} initial={{ y: 24, opacity: 0 }} transition={{ duration: 0.6, delay: 0.1 }}>
+            <div className="relative mx-auto max-w-[560px] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] p-2 shadow-soft-blue">
+              <Image src={`${getImagePrefix()}images/upgrade/form.webp`} alt="Formulario de registro académico" width={625} height={580} className="h-auto w-full rounded-xl object-cover" />
             </div>
           </motion.div>
         </div>

@@ -7,7 +7,8 @@ import Upgrade from "@/components/Home/upgrade";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "FI - EPIS",
+  title: "VII JEPA 2026 - FI EPIS",
+  description: "VII Jornada de Exposición de Productos Académicos 2026 de Ingeniería de Sistemas.",
   icons: {
     icon: "/images/logo/es-undc.png",
   },

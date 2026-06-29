@@ -2,8 +2,28 @@ import { Request, Response } from "express";
 import pool from "../utils/db";
 import path from "path";
 
+const requiredFields = [
+    "docente",
+    "nombre_proyecto",
+    "num_integrantes",
+    "nombres_integrantes",
+    "disciplina",
+    "curso",
+    "ciclo",
+    "turno",
+] as const;
+
+const isPlaceholder = (value: string) => value.trim().toLowerCase().startsWith("seleccione");
+
 export const registerProject = async (req: Request, res: Response) => {
     try {
+        const missingField = requiredFields.find((field) => !String(req.body[field] || "").trim());
+
+        if (missingField) {
+            res.status(400).json({ message: `El campo ${missingField} es obligatorio.` });
+            return;
+        }
+
         const {
             docente,
             nombre_proyecto,
@@ -15,7 +35,20 @@ export const registerProject = async (req: Request, res: Response) => {
             turno,
         } = req.body;
 
-        const files = req.files as Express.Multer.File[];
+        const invalidSelection = [docente, num_integrantes, disciplina, curso, ciclo, turno].some(isPlaceholder);
+
+        if (invalidSelection) {
+            res.status(400).json({ message: "Debe completar todas las selecciones del formulario." });
+            return;
+        }
+
+        const files = (req.files || []) as Express.Multer.File[];
+
+        if (files.length === 0) {
+            res.status(400).json({ message: "Debe subir al menos un archivo PDF." });
+            return;
+        }
+
         const filePaths = files.map((file) => path.basename(file.path));
 
         await pool.execute(
@@ -24,14 +57,14 @@ export const registerProject = async (req: Request, res: Response) => {
         disciplina, curso, ciclo, turno, archivo1, archivo2
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             [
-                docente,
-                nombre_proyecto,
-                num_integrantes,
-                nombres_integrantes,
-                disciplina,
-                curso,
-                ciclo,
-                turno,
+                docente.trim(),
+                nombre_proyecto.trim(),
+                num_integrantes.trim(),
+                nombres_integrantes.trim(),
+                disciplina.trim(),
+                curso.trim(),
+                ciclo.trim(),
+                turno.trim(),
                 filePaths[0] || null,
                 filePaths[1] || null,
             ]
@@ -39,40 +72,34 @@ export const registerProject = async (req: Request, res: Response) => {
 
         res.status(201).json({ message: "Proyecto registrado correctamente." });
     } catch (error) {
-        console.error("❌ Error en el registro:", error);
+        console.error("Error en el registro:", error);
         res.status(500).json({ message: "Error al registrar el proyecto." });
     }
 };
 
-//end point to get all registered projects
 export const getRegisteredProjects = async (req: Request, res: Response) => {
     try {
         const [rows] = await pool.execute(`SELECT * FROM proyectos`) as any[];
 
-        // Transformar los datos
         const transformedProjects = rows.map((project: projectApiExternal) => {
-            // Convertir nombres_integrantes a array de strings sin espacios
             const nombresIntegrantes = project.nombres_integrantes
-                ? project.nombres_integrantes.split(',').map((nombre: string) => nombre.trim())
+                ? project.nombres_integrantes.split(",").map((nombre: string) => nombre.trim())
                 : [];
 
-            // Procesar turno: dividir por guion y normalizar
-            let turnoData = { turno: '', seccion: '' };
+            let turnoData = { turno: "", seccion: "" };
             if (project.turno) {
-                const turnoSplit = project.turno.split('-').map((part: string) => part.trim());
+                const turnoSplit = project.turno.split("-").map((part: string) => part.trim());
                 const turno = turnoSplit[0];
-                const seccion = turnoSplit[1] || '';
+                const seccion = turnoSplit[1] || "";
 
-                // Normalizar turno
                 let turnoNormalizado = turno;
-                if (turno.toLowerCase() === 'mañana') turnoNormalizado = 'MANANA';
-                else if (turno.toLowerCase() === 'tarde') turnoNormalizado = 'TARDE';
-                else if (turno.toLowerCase() === 'noche') turnoNormalizado = 'NOCHE';
+                if (turno.toLowerCase() === "mañana") turnoNormalizado = "MANANA";
+                else if (turno.toLowerCase() === "tarde") turnoNormalizado = "TARDE";
+                else if (turno.toLowerCase() === "noche") turnoNormalizado = "NOCHE";
 
                 turnoData = { turno: turnoNormalizado, seccion };
             }
 
-            // Combinar archivo1 y archivo2 en array archivos
             const archivos = [];
             if (project.archivo1) archivos.push(project.archivo1);
             if (project.archivo2) archivos.push(project.archivo2);
@@ -81,8 +108,7 @@ export const getRegisteredProjects = async (req: Request, res: Response) => {
                 ...project,
                 nombres_integrantes: nombresIntegrantes,
                 ...turnoData,
-                archivos: archivos,
-                // Remover archivo1 y archivo2 individuales
+                archivos,
                 archivo1: undefined,
                 archivo2: undefined
             };
@@ -90,7 +116,7 @@ export const getRegisteredProjects = async (req: Request, res: Response) => {
 
         res.status(200).json(transformedProjects);
     } catch (error) {
-        console.error("❌ Error al obtener proyectos registrados:", error);
+        console.error("Error al obtener proyectos registrados:", error);
         res.status(500).json({ message: "Error al obtener proyectos registrados." });
     }
 };

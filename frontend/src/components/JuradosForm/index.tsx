@@ -27,19 +27,8 @@ const JuradosForm = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        const data = new FormData();
-        data.append("nombres", formData.nombres);
-        data.append("apellidos", formData.apellidos);
-        data.append("celular", formData.celular);
-        data.append("correo", formData.correo);
-        data.append("horario", formData.horario);
-
         try {
-            const res = await axios.post(API_ENDPOINTS.jurados, data, {
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
+            await axios.post(API_ENDPOINTS.jurados, formData);
 
             Swal.fire({
                 icon: "success",
