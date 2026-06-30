@@ -49,7 +49,7 @@ const Hero = () => {
             <div className="relative mx-auto w-full max-w-[640px] overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-2 shadow-soft-blue">
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
                 <Image
-                  src={`${getImagePrefix()}images/hero/chi_peru.webp`}
+                  src={`${getImagePrefix()}images/hero/IMG_9932.webp`}
                   alt="Estudiantes de Ingeniería de Sistemas presentando proyectos académicos"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"

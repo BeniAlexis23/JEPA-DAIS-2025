@@ -12,7 +12,7 @@ const Upgrade = () => {
           <motion.div whileInView={{ y: 0, opacity: 1 }} initial={{ y: 24, opacity: 0 }} transition={{ duration: 0.6 }}>
             <p className="mb-3 text-16 font-semibold uppercase tracking-[0.2em] text-secondary">Formulario de registro</p>
             <h2 className="mb-5 text-30 font-semibold text-white sm:text-40">
-              Participa en la <span className="text-primary">convocatoria 2026</span>
+              Participa en la <span className="text-primary">convocatoria 2026 - I</span>
             </h2>
             <p className="mb-8 text-17 leading-8 text-slate-300 lg:text-18">
               Revisa las bases oficiales, prepara los archivos solicitados y completa el formulario con los datos del proyecto. El registro está diseñado para que equipos y docentes asesores puedan enviar su información de forma ordenada.

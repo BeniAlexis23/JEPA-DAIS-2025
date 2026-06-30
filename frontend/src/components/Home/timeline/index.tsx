@@ -10,7 +10,7 @@ const TimeLine = () => {
         <motion.div whileInView={{ y: 0, opacity: 1 }} initial={{ y: 24, opacity: 0 }} transition={{ duration: 0.6 }} className="mb-10 max-w-3xl">
           <p className="mb-3 text-16 font-semibold uppercase tracking-[0.2em] text-secondary">Cronograma</p>
           <h2 className="text-30 font-semibold text-white sm:text-40">
-            Cronograma <span className="text-primary">académico 2026</span>
+            Cronograma <span className="text-primary">académico 2026 - I</span>
           </h2>
         </motion.div>
         <motion.div whileInView={{ scale: 1, opacity: 1 }} initial={{ scale: 0.96, opacity: 0 }} transition={{ duration: 0.6 }}>

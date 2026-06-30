@@ -290,10 +290,10 @@ const RegisterForm = () => {
       {/* Overlay cuando el registro está cerrado */}
       {!REGISTRO_ABIERTO && (
         <div className="absolute inset-0 bg-black/80 backdrop-blur-md rounded-lg flex items-center justify-center z-10 animate-fadeIn">
-          <div className="bg-slate-800 border-2 border-red-500/50 rounded-2xl shadow-2xl p-10 m-4 max-w-md text-center transform transition-all animate-scaleIn">
+          <div className="bg-slate-800 border-2 border-yellow-500/50 rounded-2xl shadow-2xl p-10 m-4 max-w-md text-center transform transition-all animate-scaleIn">
             <div className="mb-6">
               <svg
-                className="w-24 h-24 mx-auto text-red-500 animate-bounce drop-shadow-lg"
+                className="w-24 h-24 mx-auto text-yellow-500 animate-bounce drop-shadow-lg"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -307,10 +307,10 @@ const RegisterForm = () => {
               </svg>
             </div>
             <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-md">
-              Registro Cerrado
+              Registro Pausado
             </h2>
             <p className="text-gray-200 text-lg mb-6 leading-relaxed">
-              El periodo de registro de proyectos ha finalizado.
+              El periodo de registro será muy pronto.
             </p>
             {/* <div className="bg-blue-600/20 border border-blue-500/40 rounded-lg p-4">
               <p className="text-sm text-blue-100 font-medium">

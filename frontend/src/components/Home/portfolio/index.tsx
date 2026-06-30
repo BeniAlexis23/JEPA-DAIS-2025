@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 import { getImagePrefix } from "@/utils/utils";
 
 const photos = [
-  "IMG_6067.webp",
-  "IMG_6223.webp",
-  "IMG_6278.webp",
-  "IMG_6139.webp",
-  "IMG_6247.webp",
-  "IMG_6307.webp",
-  "IMG_6369.webp",
-  "IMG_6285.webp",
+  "IMG_9608.webp",
+  "IMG_9709.webp",
+  "IMG_9726.webp",
+  "IMG_9846.webp",
+  "IMG_9873.webp",
+  "IMG_9902.webp",
+  "IMG_9924.webp",
+  "IMG_9939.webp",
 ];
 
 const Portfolio = () => {
@@ -54,7 +54,7 @@ const Portfolio = () => {
                   />
                 </div>
                 <div className="border-t border-white/10 bg-darkmode/80 p-5">
-                  <p className="text-18 font-semibold text-white">JEPA</p>
+                  <p className="text-18 font-semibold text-white">JEPA 2025 - II</p>
                   <p className="mt-1 text-sm text-slate-300">Archivo académico</p>
                 </div>
               </article>
