@@ -21,7 +21,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative overflow-hidden bg-site-radial pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-40" id="main-banner">
+    <section className="relative overflow-hidden bg-site-radial pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-32" id="main-banner">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-secondary/60 to-transparent" />
       <div className="container relative z-10 mx-auto px-4 lg:max-w-screen-xl">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
