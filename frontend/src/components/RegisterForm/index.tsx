@@ -9,86 +9,81 @@ import { API_ENDPOINTS } from "@/config/api";
 
 const docentes: string[] = [
   "Seleccione Docente",
-  "ALEJOS CUADROS HENRY YURI ",
   "ALMIDON ORTIZ CARLOS ALCIDES",
   "ANGOMA ASTUCURI MIRIAM",
   "ARANGÜENA YLLANES MAGALY ROXANA",
   "ASTO HUAMÁN LEONIDAS",
+  "BARRERA CAJACHAGUA MARIA LAURA",
   "CANDIA QUISPE WILSON WILMAR",
   "CARDENAS LINO CESAR ANDY",
-  "COLQUEPISCO PAUCAR NILO TEODORICO",
+  "CENTENO CACERES DAVID",
   "DAGA CHACA MARISOL",
   "DURAN CARHUAMACA AMANDA",
+  "ECHACCAYA ANYOSA JHONATHAN EDILFONSO",
   "FERREYROS YUCRA JAIR EMERSON",
   "HERNANDEZ PEVES JUAN GUSTAVO",
   "HUANCAHUIRE BRACO CLAUDIO ISAIAS",
   "HUARANCCA CONTRERAS PATRICIA PAULINA",
   "LARICO UCHAMACO GUIDO RAÚL",
-  "LOPEZ CONDEÑA WILLIAM GIANCARLO",
-  "MEDINA URIBE JURY CARLA",
   "OSEDA GAGO DULIO",
   "PACHECO PUMALEQUE ALEX ABELARDO",
+  "QUISPE AGUILAR MAX",
   "RAMIREZ PACHECO LUIS ENRIQUE",
   "REYNOSO PALPA JENNY ROCIO",
-  "RIVERA CRISOSTOMO RENEE",
   "ROQUE TITO EDWIN",
   "SALCEDO RODAS PERCY ISMAEL",
-  "SANCHEZ CASTILLO EDDYE ARTURO",
+  "SIERRA MANUEL ANTHONY ALEXIS",
   "SOTELO VICENTE JOSÉ FERNANDO",
+  "TORRES JIMENEZ ELEAZAR OBED",
   "VICENTE RAMOS WAGNER ENOC",
   "VILCA PIZARRO JOEL LINDER",
+  "ZAMUDIO ESPINOZA ZULMA GISELA",
   "DOCENTE EG",
 ];
 
-const integrantes = ["Seleccione Número Integrantes", "1", "2", "3", "4", "5"];
+const integrantes = ["Seleccione Número Integrantes", "1", "2", "3"];
 
 const disciplinas: { [key: string]: string[] } = {
-  "Matemáticas Aplicadas": ["Matemática Básica I", "Matemática Básica II"],
-  "Estadística y Probabilidades": [
-    "Estadística y Probabilidades",
-    "Investigación Operativa II",
+  "Ciencias Básicas, Matemáticas y Modelamiento": [
+    "Matemática Básica I", 
+    "Matemática Básica II", 
+    "Física General", 
+    "Matemática Superior", 
+    "Investigación Operativa I", 
+    "Estadística Inferencial", 
+    "Ingeniería de Costos"
   ],
-  "Ciencias de la Computación": [
+ 
+  "Programación y Desarrollo de Software": [
     "Algoritmo y Fundamentos de Programación",
-    "Herramientas Digitales",
     "Estructura de Datos",
-    "Fundamentos de Base de Datos",
-    "Desarrollo Web Full Stack",
-    "Data Warehouse",
-    "Arquitectura de Software",
-    "Testing y Aseguramiento de la Calidad del Software",
+    "Programación Orientada a Objetos",
+    "Desarrollo de Aplicaciones Móviles",
+    "Desarrollo de Aplicaciones con DevOps",
+    "Programación Funcional y Reactiva",
   ],
-  "Automatización y Sistemas de Control": [
-    "Inteligencia Artificial y Sistemas Expertos",
-    "Deep Learning",
+
+  "Redes, Arquitectura y Ciberseguridad": [
+    "Introducción al Networking",
+    "Arquitectura de Computadoras",
+    "Administración de Redes de Comunicaciones",
+    "Ciberseguridad",
   ],
-  Telecomunicaciones: [
-    "Diseño de Redes de Comunicaciones",
-    "Configuración de Servidores",
+
+  "Gestión de Datos, Inteligencia Artificial y Analítica": [
+    "Administración de Bases de Datos",
+    "Big Data",
+    "Machine Learning",
+    "Inteligencia de Negocios",
+    "Sistemas de Información Geográfica",
+  ],
+
+  "Ingeniería de Sistemas, Innovación y Herramientas": [
+    "Teoría de General de Sistemas",
+    "Herramientas Digitales",
     "Dibujo CAD",
-  ],
-  "Ingeniería de Sistemas y Comunicaciones": [
-    "Diseño de Procesos de Negocio",
-    "Seguridad y Criptografía",
-    "Gestion de Proyectos",
-    "Auditoría de Sistemas",
-    "Business Intelligence",
-  ],
-  "Hardware y Arquitectura de Computadoras": [
-    "Internet de las Cosas",
-    "Sistemas Digitales",
-  ],
-  "Otras Ingenierías y Tecnologías": [
-    "Comunicación",
-    "Desarrollo Personal",
-    "Métodos de Estudios Universitario",
-    "Derechos Fundamentales de la Persona y la Sociedad",
-    "Fisica General",
-    "Cultura Ambiental y Resposabilidad Social",
-    "Derecho Empresarial",
-    "Ética Deontológica",
-    "Practicas Pre Profesionales II",
-    "Teoría General de Sistemas",
+    "Emprendimiento e Innovación",
+    "Simulación de Sistemas",
   ],
 };
 
@@ -96,10 +91,10 @@ const ciclos = [
   "Seleccione Ciclo Académico",
   "I",
   "II",
-  "IV",
-  "VI",
-  "VIII",
-  "X",
+  "III",
+  "V",
+  "VII",
+  "IX",
 ];
 
 const turnos = [
@@ -130,7 +125,7 @@ const initialFormData = {
 };
 
 // Control de estado del registro desde variables de entorno
-const REGISTRO_ABIERTO = process.env.NEXT_PUBLIC_REGISTRO_ABIERTO === 'true';
+const REGISTRO_ABIERTO = process.env.NEXT_PUBLIC_REGISTRO_ABIERTO === 'false';
 
 const RegisterForm = () => {
   const [selectedDisciplina, setSelectedDisciplina] = useState("");
@@ -268,7 +263,7 @@ const RegisterForm = () => {
       </h1>
       <div className="flex gap-4 mb-6 justify-center">
         <Link
-          href="https://drive.google.com/file/d/12GtthXUdCvCd03QdrR0yb2-KyRCzMTIo/view?usp=sharing"
+          href="https://drive.google.com/file/d/1lGBomBkEzs6XhFz1L238AhoyyMliAlWT/view?usp=sharing"
           target="_blank"
           className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
         >
@@ -284,7 +279,7 @@ const RegisterForm = () => {
       </div>
 
       <div className="md:col-span-2 my-5">
-        <p className="text-center mb-2">Consultas: Ing. Carlos Cayahuallpa - 907625151 | Ing. Beni Luyo - 910922963</p>
+        <p className="text-center mb-2">Consultas: Ing. Gianmarcos Arias - 954030965 | Ing. Beni Luyo - 910922963</p>
       </div>
 
       {/* Overlay cuando el registro está cerrado */}
