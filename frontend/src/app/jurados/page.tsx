@@ -2,19 +2,18 @@ import { Metadata } from "next";
 import JuradosForm from "@/components/JuradosForm";
 
 export const metadata: Metadata = {
-    title: "FI - EPIS",
-    icons: {
-        icon: "images/logo/es-undc.png",
-    },
+  title: "Registro de Jurados - VII JEPA 2026",
+  icons: {
+    icon: "images/logo/es-undc.png",
+  },
 };
 
 const Jurados = () => {
-
-    return (
-        <main className="min-h-screen flex items-center justify-center">
-            <JuradosForm />
-        </main>
-    )
-}
+  return (
+    <main className="min-h-screen bg-site-radial pt-28 lg:pt-32">
+      <JuradosForm />
+    </main>
+  );
+};
 
 export default Jurados;

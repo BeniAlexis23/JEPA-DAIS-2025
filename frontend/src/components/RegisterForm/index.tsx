@@ -45,15 +45,14 @@ const integrantes = ["Seleccione Número Integrantes", "1", "2", "3"];
 
 const disciplinas: { [key: string]: string[] } = {
   "Ciencias Básicas, Matemáticas y Modelamiento": [
-    "Matemática Básica I", 
-    "Matemática Básica II", 
-    "Física General", 
-    "Matemática Superior", 
-    "Investigación Operativa I", 
-    "Estadística Inferencial", 
-    "Ingeniería de Costos"
+    "Matemática Básica I",
+    "Matemática Básica II",
+    "Física General",
+    "Matemática Superior",
+    "Investigación Operativa I",
+    "Estadística Inferencial",
+    "Ingeniería de Costos",
   ],
- 
   "Programación y Desarrollo de Software": [
     "Algoritmo y Fundamentos de Programación",
     "Estructura de Datos",
@@ -62,14 +61,12 @@ const disciplinas: { [key: string]: string[] } = {
     "Desarrollo de Aplicaciones con DevOps",
     "Programación Funcional y Reactiva",
   ],
-
   "Redes, Arquitectura y Ciberseguridad": [
     "Introducción al Networking",
     "Arquitectura de Computadoras",
     "Administración de Redes de Comunicaciones",
     "Ciberseguridad",
   ],
-
   "Gestión de Datos, Inteligencia Artificial y Analítica": [
     "Administración de Bases de Datos",
     "Big Data",
@@ -77,7 +74,6 @@ const disciplinas: { [key: string]: string[] } = {
     "Inteligencia de Negocios",
     "Sistemas de Información Geográfica",
   ],
-
   "Ingeniería de Sistemas, Innovación y Herramientas": [
     "Teoría de General de Sistemas",
     "Herramientas Digitales",
@@ -87,15 +83,7 @@ const disciplinas: { [key: string]: string[] } = {
   ],
 };
 
-const ciclos = [
-  "Seleccione Ciclo Académico",
-  "I",
-  "II",
-  "III",
-  "V",
-  "VII",
-  "IX",
-];
+const ciclos = ["Seleccione Ciclo Académico", "I", "II", "III", "V", "VII", "IX"];
 
 const turnos = [
   "Seleccione Turno y Sección",
@@ -124,64 +112,44 @@ const initialFormData = {
   turno: "",
 };
 
-// Control de estado del registro desde variables de entorno
-const REGISTRO_ABIERTO = process.env.NEXT_PUBLIC_REGISTRO_ABIERTO === 'false';
+const REGISTRO_ABIERTO = process.env.NEXT_PUBLIC_REGISTRO_ABIERTO === "false";
+
+const fieldClass =
+  "h-12 w-full rounded-xl border border-slate-600/70 bg-deepSlate/95 px-4 text-16 text-slate-50 outline-none transition placeholder:text-slate-400 focus:border-secondary focus:bg-slate-900 focus:ring-2 focus:ring-secondary/25 disabled:cursor-not-allowed disabled:opacity-60 [color-scheme:dark]";
+const labelClass = "mb-2 text-sm font-semibold text-slate-200";
 
 const RegisterForm = () => {
   const [selectedDisciplina, setSelectedDisciplina] = useState("");
-
   const [formData, setFormData] = useState(initialFormData);
   const [files, setFiles] = useState<File[]>([]);
-
   const [nombresIntegrantes, setNombresIntegrantes] = useState<string[]>([]);
   const [inputIntegrante, setInputIntegrante] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // ---- VALIDACIONES ----
     if (!formData.docente.trim()) {
-      Swal.fire(
-        "Campos incompletos",
-        "Debe seleccionar un docente asesor.",
-        "warning"
-      );
+      Swal.fire("Campos incompletos", "Debe seleccionar un docente asesor.", "warning");
       return;
     }
 
     if (!formData.nombre_proyecto.trim()) {
-      Swal.fire(
-        "Campos incompletos",
-        "Debe ingresar el nombre del proyecto.",
-        "warning"
-      );
+      Swal.fire("Campos incompletos", "Debe ingresar el nombre del proyecto.", "warning");
       return;
     }
 
     if (!formData.num_integrantes.trim()) {
-      Swal.fire(
-        "Campos incompletos",
-        "Debe seleccionar el número de integrantes.",
-        "warning"
-      );
+      Swal.fire("Campos incompletos", "Debe seleccionar el número de integrantes.", "warning");
       return;
     }
 
     if (nombresIntegrantes.length === 0) {
-      Swal.fire(
-        "Campos incompletos",
-        "Debe ingresar al menos un código universitario de integrante.",
-        "warning"
-      );
+      Swal.fire("Campos incompletos", "Debe ingresar al menos un código universitario de integrante.", "warning");
       return;
     }
 
     if (!formData.disciplina.trim()) {
-      Swal.fire(
-        "Campos incompletos",
-        "Debe seleccionar una disciplina.",
-        "warning"
-      );
+      Swal.fire("Campos incompletos", "Debe seleccionar una disciplina.", "warning");
       return;
     }
 
@@ -191,33 +159,19 @@ const RegisterForm = () => {
     }
 
     if (!formData.ciclo.trim()) {
-      Swal.fire(
-        "Campos incompletos",
-        "Debe seleccionar un ciclo académico.",
-        "warning"
-      );
+      Swal.fire("Campos incompletos", "Debe seleccionar un ciclo académico.", "warning");
       return;
     }
 
     if (!formData.turno.trim()) {
-      Swal.fire(
-        "Campos incompletos",
-        "Debe seleccionar un turno y sección.",
-        "warning"
-      );
+      Swal.fire("Campos incompletos", "Debe seleccionar un turno y sección.", "warning");
       return;
     }
 
     if (!files || files.length === 0) {
-      Swal.fire(
-        "Archivo requerido",
-        "Debe subir al menos un archivo PDF",
-        "warning"
-      );
+      Swal.fire("Archivo requerido", "Debe subir al menos un archivo PDF", "warning");
       return;
     }
-
-    // ---- SI TODO ES CORRECTO, ARMAMOS LA DATA ----
 
     const data = new FormData();
     Object.entries({
@@ -229,7 +183,7 @@ const RegisterForm = () => {
     files.forEach((file) => data.append("files", file));
 
     try {
-      const res = await axios.post(API_ENDPOINTS.register, data, {
+      await axios.post(API_ENDPOINTS.register, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -238,7 +192,7 @@ const RegisterForm = () => {
       Swal.fire({
         icon: "success",
         title: "Proyecto registrado con éxito",
-        confirmButtonColor: "#2563eb", // azul
+        confirmButtonColor: "#0ea5e9",
       });
       setFormData(initialFormData);
       setFiles([]);
@@ -251,265 +205,181 @@ const RegisterForm = () => {
         icon: "error",
         title: "Error al registrar el proyecto",
         text: "Ocurrió un problema al enviar los datos.",
-        confirmButtonColor: "#ef4444", // rojo
+        confirmButtonColor: "#ef4444",
       });
     }
   };
 
   return (
-    <div className="shadow-lg rounded-lg p-8 w-full max-w-4xl relative">
-      <h1 className="text-4xl font-semibold mb-6 md:pt-20 pt-5 text-center">
-        Registro de Proyectos Académicos
-      </h1>
-      <div className="flex gap-4 mb-6 justify-center">
-        <Link
-          href="https://drive.google.com/file/d/1lGBomBkEzs6XhFz1L238AhoyyMliAlWT/view?usp=sharing"
-          target="_blank"
-          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-        >
-          Bases
-        </Link>
-        <Link
-          href="https://drive.google.com/drive/folders/1joWrgTmtFmMVCgcMhaWkd8B-YVFfuzAf?usp=sharing"
-          target="_blank"
-          className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-        >
-          Formatos
-        </Link>
-      </div>
+    <section className="relative w-full overflow-hidden px-4 py-8 sm:py-12">
+      <div className="mx-auto w-full max-w-6xl">
+        <div className="mb-8 text-center">
+          <p className="mb-3 text-14 font-semibold uppercase tracking-[0.22em] text-secondary">Convocatoria 2026 - I</p>
+          <h1 className="text-32 font-semibold text-white sm:text-44">Registro de Proyectos Académicos</h1>
+          <p className="mx-auto mt-4 max-w-3xl text-16 leading-7 text-slate-300 sm:text-18">
+            Completa los datos del equipo, selecciona la línea académica y adjunta los documentos solicitados para participar en la VII Jornada.
+          </p>
+        </div>
 
-      <div className="md:col-span-2 my-5">
-        <p className="text-center mb-2">Consultas: Ing. Gianmarcos Arias - 954030965 | Ing. Beni Luyo - 910922963</p>
-      </div>
-
-      {/* Overlay cuando el registro está cerrado */}
-      {!REGISTRO_ABIERTO && (
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-md rounded-lg flex items-center justify-center z-10 animate-fadeIn">
-          <div className="bg-slate-800 border-2 border-yellow-500/50 rounded-2xl shadow-2xl p-10 m-4 max-w-md text-center transform transition-all animate-scaleIn">
-            <div className="mb-6">
-              <svg
-                className="w-24 h-24 mx-auto text-yellow-500 animate-bounce drop-shadow-lg"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-                />
-              </svg>
-            </div>
-            <h2 className="text-4xl font-bold text-white mb-4 drop-shadow-md">
-              Registro Pausado
-            </h2>
-            <p className="text-gray-200 text-lg mb-6 leading-relaxed">
-              El periodo de registro será muy pronto.
-            </p>
-            {/* <div className="bg-blue-600/20 border border-blue-500/40 rounded-lg p-4">
-              <p className="text-sm text-blue-100 font-medium">
-                Para más información, contactar a los coordinadores
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] p-5 shadow-soft-blue backdrop-blur-xl sm:p-8 lg:p-10">
+          <div className="mb-8 grid gap-4 border-b border-white/10 pb-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <h2 className="text-24 font-semibold text-white">Datos del proyecto</h2>
+              <p className="mt-2 text-15 leading-6 text-slate-400">
+                Los campos son obligatorios. Puedes agregar códigos universitarios presionando Enter.
               </p>
-            </div> */}
-          </div>
-        </div>
-      )}
-
-      <form
-        onSubmit={handleSubmit}
-        className={`grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4 ${!REGISTRO_ABIERTO ? 'opacity-50 pointer-events-none' : ''}`}
-      >
-        <div className="flex flex-col">
-          <label className="text-sm text-white mb-1">Docente Asesor</label>
-          <select
-            required
-            className="border rounded px-4 py-2 w-full"
-            value={formData.docente}
-            onChange={(e) =>
-              setFormData({ ...formData, docente: e.target.value })
-            }
-          >
-            {docentes.map((docente, index) => (
-              <option key={index} value={docente}>
-                {docente}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="flex flex-col">
-          <label className="text-sm text-white mb-1">Nombre del Proyecto</label>
-          <input
-            required
-            type="text"
-            placeholder="Implementación de la herramienta..."
-            className="border rounded px-4 py-2 w-full"
-            value={formData.nombre_proyecto}
-            onChange={(e) =>
-              setFormData({ ...formData, nombre_proyecto: e.target.value })
-            }
-          />
-        </div>
-        <div className="flex flex-col">
-          <label className="text-sm text-white mb-1">
-            Número de Integrantes
-          </label>
-          <select
-            required
-            className="border rounded px-4 py-2 w-full"
-            value={formData.num_integrantes}
-            onChange={(e) =>
-              setFormData({ ...formData, num_integrantes: e.target.value })
-            }
-          >
-            {integrantes.map((item, index) => (
-              <option key={index} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="flex flex-col md:col-span-2">
-          <label className="text-sm text-white mb-1">
-            Código Universitario de los Integrantes
-          </label>
-          <div className="border rounded px-4 py-2 w-full min-h-[100px]">
-            <div className="flex flex-wrap gap-2 mb-2">
-              {nombresIntegrantes.map((nombre, idx) => (
-                <span
-                  key={idx}
-                  className="bg-blue-500 text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
-                >
-                  {nombre}
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setNombresIntegrantes(
-                        nombresIntegrantes.filter((_, i) => i !== idx)
-                      )
-                    }
-                    className="ml-1 text-xs"
-                  >
-                    ✕
-                  </button>
-                </span>
-              ))}
             </div>
-            <input
-              type="text"
-              placeholder=" Ingrese código del estudiante y presione Enter"
-              className="w-full border rounded outline-none"
-              value={inputIntegrante}
-              onChange={(e) => setInputIntegrante(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && inputIntegrante.trim()) {
-                  e.preventDefault();
-                  setNombresIntegrantes([
-                    ...nombresIntegrantes,
-                    inputIntegrante.trim(),
-                  ]);
-                  setInputIntegrante("");
-                }
-              }}
-            />
+            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+              <Link
+                href="https://drive.google.com/file/d/1lGBomBkEzs6XhFz1L238AhoyyMliAlWT/view?usp=sharing"
+                target="_blank"
+                className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-center text-16 font-semibold text-slate-100 transition hover:border-secondary hover:text-secondary"
+              >
+                Bases
+              </Link>
+              <Link
+                href="https://drive.google.com/drive/folders/1joWrgTmtFmMVCgcMhaWkd8B-YVFfuzAf?usp=sharing"
+                target="_blank"
+                className="rounded-xl border border-primary bg-primary px-5 py-3 text-center text-16 font-semibold text-white transition hover:bg-secondary hover:text-darkmode"
+              >
+                Formatos
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div className="flex flex-col">
-          <label className="text-sm text-white mb-1">Disciplina</label>
-          <select
-            required
-            className="border rounded px-4 py-2 w-full"
-            value={formData.disciplina}
-            onChange={(e) => {
-              setSelectedDisciplina(e.target.value);
-              setFormData({
-                ...formData,
-                disciplina: e.target.value,
-                curso: "",
-              });
-            }}
-          >
-            <option value="">Seleccione Disciplina</option>
-            {Object.keys(disciplinas).map((disc, index) => (
-              <option key={index} value={disc}>
-                {disc}
-              </option>
-            ))}
-          </select>
+          <div className="mb-8 rounded-2xl border border-secondary/20 bg-secondary/10 px-5 py-4 text-center text-15 leading-6 text-slate-200">
+            Consultas: Ing. Gianmarcos Arias - 954030965 | Ing. Beni Luyo - 910922963
+          </div>
+
+          {!REGISTRO_ABIERTO && (
+            <div className="absolute inset-0 z-10 flex items-center justify-center bg-darkmode/85 p-4 backdrop-blur-md animate-fadeIn">
+              <div className="max-w-md rounded-2xl border border-warning/40 bg-deepSlate p-8 text-center shadow-2xl animate-scaleIn">
+                <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-warning/15 text-warning">
+                  <svg className="h-11 w-11" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                </div>
+                <h2 className="mb-3 text-32 font-semibold text-white">Registro pausado</h2>
+                <p className="text-17 leading-7 text-slate-300">El periodo de registro será habilitado próximamente.</p>
+              </div>
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className={`grid grid-cols-1 gap-5 lg:grid-cols-2 ${!REGISTRO_ABIERTO ? "opacity-40 pointer-events-none" : ""}`}>
+            <div className="flex flex-col">
+              <label className={labelClass}>Docente asesor</label>
+              <select required className={fieldClass} value={formData.docente} onChange={(e) => setFormData({ ...formData, docente: e.target.value })}>
+                {docentes.map((docente, index) => (
+                  <option key={index} value={docente}>{docente}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col">
+              <label className={labelClass}>Nombre del proyecto</label>
+              <input required type="text" placeholder="Implementación de una solución tecnológica..." className={fieldClass} value={formData.nombre_proyecto} onChange={(e) => setFormData({ ...formData, nombre_proyecto: e.target.value })} />
+            </div>
+
+            <div className="flex flex-col">
+              <label className={labelClass}>Número de integrantes</label>
+              <select required className={fieldClass} value={formData.num_integrantes} onChange={(e) => setFormData({ ...formData, num_integrantes: e.target.value })}>
+                {integrantes.map((item, index) => (
+                  <option key={index} value={item}>{item}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col lg:row-span-2">
+              <label className={labelClass}>Códigos universitarios</label>
+              <div className="min-h-[124px] rounded-xl border border-slate-600/70 bg-deepSlate/95 px-4 py-3 transition focus-within:border-secondary focus-within:ring-2 focus-within:ring-secondary/25">
+                <div className="mb-3 flex flex-wrap gap-2">
+                  {nombresIntegrantes.map((nombre, idx) => (
+                    <span key={idx} className="flex items-center gap-2 rounded-full bg-primary/20 px-3 py-1.5 text-sm font-medium text-secondary">
+                      {nombre}
+                      <button type="button" onClick={() => setNombresIntegrantes(nombresIntegrantes.filter((_, i) => i !== idx))} className="text-xs text-slate-200 transition hover:text-white" aria-label={`Quitar integrante ${nombre}`}>
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+                <input
+                  type="text"
+                  placeholder="Ingrese código y presione Enter"
+                  className="w-full bg-transparent text-16 text-slate-50 outline-none placeholder:text-slate-400"
+                  value={inputIntegrante}
+                  onChange={(e) => setInputIntegrante(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && inputIntegrante.trim()) {
+                      e.preventDefault();
+                      setNombresIntegrantes([...nombresIntegrantes, inputIntegrante.trim()]);
+                      setInputIntegrante("");
+                    }
+                  }}
+                />
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <label className={labelClass}>Disciplina</label>
+              <select
+                required
+                className={fieldClass}
+                value={formData.disciplina}
+                onChange={(e) => {
+                  setSelectedDisciplina(e.target.value);
+                  setFormData({ ...formData, disciplina: e.target.value, curso: "" });
+                }}
+              >
+                <option value="">Seleccione Disciplina</option>
+                {Object.keys(disciplinas).map((disc, index) => (
+                  <option key={index} value={disc}>{disc}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col">
+              <label className={labelClass}>Curso</label>
+              <select required className={fieldClass} value={formData.curso} disabled={!selectedDisciplina} onChange={(e) => setFormData({ ...formData, curso: e.target.value })}>
+                <option value="">Seleccione Curso</option>
+                {selectedDisciplina && disciplinas[selectedDisciplina].map((curso, index) => (
+                  <option key={index} value={curso}>{curso}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col">
+              <label className={labelClass}>Ciclo académico</label>
+              <select required className={fieldClass} value={formData.ciclo} onChange={(e) => setFormData({ ...formData, ciclo: e.target.value })}>
+                {ciclos.map((ciclo, index) => (
+                  <option key={index} value={ciclo}>{ciclo}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="flex flex-col">
+              <label className={labelClass}>Turno y sección</label>
+              <select required className={fieldClass} value={formData.turno} onChange={(e) => setFormData({ ...formData, turno: e.target.value })}>
+                {turnos.map((turno, index) => (
+                  <option key={index} value={turno}>{turno}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="lg:col-span-2">
+              <UploadFiles files={files} setFiles={setFiles} />
+            </div>
+
+            <div className="lg:col-span-2">
+              <button type="submit" className="w-full rounded-xl border border-primary bg-primary px-7 py-4 text-18 font-semibold text-white shadow-soft-blue transition hover:bg-secondary hover:text-darkmode focus:outline-none focus:ring-2 focus:ring-secondary/40">
+                Registrar proyecto
+              </button>
+            </div>
+          </form>
         </div>
-        <div className="flex flex-col">
-          <label className="text-sm text-white mb-1">Curso</label>
-          <select
-            required
-            className="border rounded px-4 py-2 w-full"
-            value={formData.curso}
-            disabled={!selectedDisciplina}
-            onChange={(e) =>
-              setFormData({ ...formData, curso: e.target.value })
-            }
-          >
-            <option value="">Seleccione Curso</option>
-            {selectedDisciplina &&
-              disciplinas[selectedDisciplina].map((curso, index) => (
-                <option key={index} value={curso}>
-                  {curso}
-                </option>
-              ))}
-          </select>
-        </div>
-        <div className="flex flex-col">
-          <label className="text-sm text-white mb-1">Ciclo Académico</label>
-          <select
-            required
-            className="border rounded px-4 py-2 w-full"
-            value={formData.ciclo}
-            onChange={(e) =>
-              setFormData({ ...formData, ciclo: e.target.value })
-            }
-          >
-            {ciclos.map((ciclo, index) => (
-              <option key={index} value={ciclo}>
-                {ciclo}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="flex flex-col">
-          <label className="text-sm text-white mb-1">Turno y Sección</label>
-          <select
-            required
-            className="border rounded px-4 py-2 w-full"
-            value={formData.turno}
-            onChange={(e) =>
-              setFormData({ ...formData, turno: e.target.value })
-            }
-          >
-            {turnos.map((turno, index) => (
-              <option key={index} value={turno}>
-                {turno}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="md:col-span-2">
-          <UploadFiles files={files} setFiles={setFiles} />
-        </div>
-        <div className="md:col-span-2">
-          {/*<p className="text-center mb-2">Tiempo Cumplido</p>
-                    <div className="w-full text-center bg-red-600 text-white py-2 rounded hover:bg-red-700 transition">
-                        Registro Cerrado
-                    </div>*/}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
-          >
-            Registrar Proyecto
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </section>
   );
 };
 
 export default RegisterForm;
+

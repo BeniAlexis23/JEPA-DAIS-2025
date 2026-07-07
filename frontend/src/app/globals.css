@@ -18,6 +18,27 @@ body {
 section {
   @apply bg-darkmode;
 }
+input,
+select,
+textarea {
+  color-scheme: dark;
+}
+
+select {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+select option {
+  background-color: #0f172a;
+  color: #f8fafc;
+}
+
+select option:checked,
+select option:hover {
+  background-color: #0ea5e9;
+  color: #ffffff;
+}
 
 .blog-details p, .blog-details hr {
   @apply mb-8;
@@ -74,3 +95,4 @@ section {
 .animate-scaleIn {
   animation: scaleIn 0.4s ease-out;
 }
+
