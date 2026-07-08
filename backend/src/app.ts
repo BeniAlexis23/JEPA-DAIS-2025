@@ -10,21 +10,29 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:3000")
-    .split(",")
-    .map((origin) => origin.trim())
-    .filter(Boolean);
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
-app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-            return;
-        }
+const corsOptions = {
+  origin: (origin: string | undefined, callback: any) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
 
-        callback(new Error("Origen no permitido por CORS"));
-    },
-}));
+    callback(new Error(`Origin no permitido por CORS: ${origin}`));
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
+
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "..", "uploads")));
 
@@ -34,5 +42,5 @@ app.use("/api", registerRoutes);
 app.use("/api", juradoRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Servidor escuchando en http://localhost:${PORT}`);
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });

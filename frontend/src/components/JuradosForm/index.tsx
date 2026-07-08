@@ -55,7 +55,7 @@ const JuradosForm = () => {
     <section className="relative w-full overflow-hidden px-4 py-8 sm:py-12">
       <div className="mx-auto w-full max-w-5xl">
         <div className="mb-8 text-center">
-          <p className="mb-3 text-14 font-semibold uppercase tracking-[0.22em] text-secondary">Convocatoria 2026</p>
+          <p className="mb-3 text-14 font-semibold uppercase tracking-[0.22em] text-secondary">Convocatoria 2026 - I</p>
           <h1 className="text-32 font-semibold text-white sm:text-44">Registro de Jurados Evaluadores</h1>
           <p className="mx-auto mt-4 max-w-3xl text-16 leading-7 text-slate-300 sm:text-18">
             Inscribe tu disponibilidad para participar como jurado evaluador en la VII Jornada de Exposición de Productos Académicos.
