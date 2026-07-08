@@ -39,7 +39,7 @@ const Hero = () => {
               <Link href="/#upgrade" className="rounded-xl border border-primary bg-primary px-7 py-3 text-center text-18 font-semibold text-white shadow-soft-blue transition hover:bg-secondary hover:text-darkmode">
                 Registro
               </Link>
-              <Link href="https://drive.google.com/file/d/1lGBomBkEzs6XhFz1L238AhoyyMliAlWT/view?usp=sharing" target="_blank" className="rounded-xl border border-white/15 bg-white/5 px-7 py-3 text-center text-18 font-semibold text-slate-100 transition hover:border-secondary hover:text-secondary">
+              <Link href="https://drive.google.com/file/d/1pVKRptVX5PeC5yl8zykOeKQNYb_Qc8n3/view?usp=sharing" target="_blank" className="rounded-xl border border-white/15 bg-white/5 px-7 py-3 text-center text-18 font-semibold text-slate-100 transition hover:border-secondary hover:text-secondary">
                 Bases
               </Link>
             </div>

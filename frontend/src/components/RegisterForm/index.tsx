@@ -231,7 +231,7 @@ const RegisterForm = () => {
             </div>
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Link
-                href="https://drive.google.com/file/d/1lGBomBkEzs6XhFz1L238AhoyyMliAlWT/view?usp=sharing"
+                href="https://drive.google.com/file/d/1pVKRptVX5PeC5yl8zykOeKQNYb_Qc8n3/view?usp=sharing"
                 target="_blank"
                 className="rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-center text-16 font-semibold text-slate-100 transition hover:border-secondary hover:text-secondary"
               >
