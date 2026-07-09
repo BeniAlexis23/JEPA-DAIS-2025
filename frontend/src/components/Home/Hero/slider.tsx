@@ -88,7 +88,7 @@ const CardSlider = () => {
   };
 
   return (
-    <div className="mt-12 lg:mt-16 cursor-grab active:cursor-grabbing [&_.slick-track]:cursor-grab [&_.slick-track]:active:cursor-grabbing">
+    <div className="mt-12 lg:mt-10 cursor-grab active:cursor-grabbing [&_.slick-track]:cursor-grab [&_.slick-track]:active:cursor-grabbing">
       <Slider ref={sliderRef} {...settings}>
         {pricedeta.map((item, index) => (
           <div key={index} className="px-2 py-1">

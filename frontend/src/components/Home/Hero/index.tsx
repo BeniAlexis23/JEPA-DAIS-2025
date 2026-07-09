@@ -27,13 +27,13 @@ const Hero = () => {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-10">
           <motion.div {...leftAnimation} className="lg:col-span-6">
             <div className="mb-6 inline-flex items-center rounded-full border border-secondary/25 bg-secondary/10 px-4 py-2 text-sm font-medium text-secondary">
-              Edición 2026 · Escuela Profesional de Ingeniería de Sistemas
+              Edición 2026 - I · Escuela Profesional de Ingeniería de Sistemas
             </div>
             <h1 className="max-w-3xl text-center text-44 font-semibold text-white sm:text-54 lg:text-left lg:text-70">
               VII Jornada de <span className="text-secondary">Exposición</span> de Productos <span className="text-primary">Académicos</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-center text-18 leading-8 text-slate-300 lg:mx-0 lg:text-left">
-              Un encuentro para presentar proyectos, prototipos e investigaciones desarrolladas por estudiantes de Ingeniería de Sistemas.
+              Un encuentro para presentar proyectos, prototipos e investigaciones desarrolladas por estudiantes de Ingeniería de Sistemas, que se realizara el día Viernes 17 de Julio de 2026 en la Sede Académica de la Casa de la Cultura.
             </p>
             <div className="mt-9 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
               <Link href="/#upgrade" className="rounded-xl border border-primary bg-primary px-7 py-3 text-center text-18 font-semibold text-white shadow-soft-blue transition hover:bg-secondary hover:text-darkmode">
