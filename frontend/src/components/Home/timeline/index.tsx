@@ -15,7 +15,7 @@ const TimeLine = () => {
         </motion.div>
         <motion.div whileInView={{ scale: 1, opacity: 1 }} initial={{ scale: 0.96, opacity: 0 }} transition={{ duration: 0.6 }}>
           <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.05] p-3 shadow-soft-blue">
-            <Image src={`${getImagePrefix()}images/timeline/cronograma.png`} alt="Cronograma académico de la jornada" width={1220} height={1000} className="mx-auto h-auto w-full rounded-xl object-contain" />
+            <Image src={`${getImagePrefix()}images/timeline/cronograma.jpeg`} alt="Cronograma académico de la jornada" width={1220} height={1000} className="mx-auto h-auto w-full rounded-xl object-contain" />
           </div>
         </motion.div>
       </div>
