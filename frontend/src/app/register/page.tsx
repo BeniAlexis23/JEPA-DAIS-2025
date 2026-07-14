@@ -1,19 +1,17 @@
 import { Metadata } from "next";
-import RegisterForm from "@/components/RegisterForm";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
-  title: "Registro de Proyectos - VII JEPA 2026",
+  title: "Registro institucional - VII JEPA 2026",
   icons: {
     icon: "images/logo/es-undc.png",
   },
 };
 
+const SIJE_PROJECT_URL = process.env.NEXT_PUBLIC_SIJE_PROJECT_URL || "https://sije.episundc.pe/proyecto";
+
 const Register = () => {
-  return (
-    <main className="min-h-screen bg-site-radial pt-28 lg:pt-32">
-      <RegisterForm />
-    </main>
-  );
+  redirect(SIJE_PROJECT_URL);
 };
 
 export default Register;
